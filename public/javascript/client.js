@@ -57,6 +57,9 @@ var PersonAndPetView = Backbone.View.extend({
  * Collection Views
  */
 var PersonCollectionView = Backbone.View.extend({
+    initialize: function() {
+        this.listenTo(this.collection, 'reset', this.render);
+    },
     tagName: 'ul',
     className: 'people',
     render: function () {
@@ -70,6 +73,9 @@ var PersonCollectionView = Backbone.View.extend({
 });
 
 var PersonAndPetCollectionView = Backbone.View.extend({
+    initialize: function() {
+        this.listenTo(this.collection, 'reset', this.render);
+    },
     tagName: 'ul',
     className: 'peopleAndPets',
     render: function() {
@@ -95,41 +101,10 @@ var AppRouter = Backbone.Router.extend({
 
     index: function() {
 
-        //personCollection.fetch({
-        //    success: function() {
-        //        console.log('successfully fetched data');
-        //        var personView = new PersonCollectionView({
-        //            collection: personCollection
-        //        });
-        //
-        //        $("#people").html(personView.render().el);
-        //    },
-        //
-        //    error: function () {
-        //        console.log('error loading person collection from app router');
-        //    }
-        //});
-
         var personData = JSON.parse($("#initialPeopleData").html());
         var personCollection = new PersonCollection(personData);
         var personView = new PersonCollectionView({collection: personCollection});
         $("#people").html(personView.render().el);
-
-
-        //personAndPetCollection.fetch({
-        //    success: function () {
-        //        console.log(personAndPetCollection);
-        //        var personAndPetCollectionView = new PersonAndPetCollectionView({
-        //            collection: personAndPetCollection
-        //        });
-        //
-        //        $("#peopleAndPets").html(personAndPetCollectionView.render().el);
-        //    },
-        //
-        //    error: function () {
-        //        console.log('error loading person and pet collection from app router');
-        //    }
-        //});
 
         var personAndPetData = JSON.parse($("#initialPeopleAndPetsData").html());
         var personAndPetCollection = new PersonAndPetCollection(personAndPetData);

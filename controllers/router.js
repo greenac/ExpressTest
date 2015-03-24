@@ -18,7 +18,7 @@ exports.index = function(req, res) {
                         peopleAndPetsData: JSON.stringify(peoplePetsData)
                     });
                 }
-            })
+            });
         }
     });
 };
