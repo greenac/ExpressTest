@@ -7,18 +7,11 @@
  */
 var mysql = require('mysql');
 
-//var connection = mysql.createConnection({
-//    host: 'localhost',
-//    user: 'andre',
-//    password: 'Perhar@6221',
-//    database: 'node_test'
-//});
-
 function People() {
     this.connection = mysql.createConnection({
         host: 'localhost',
         user: 'andre',
-        password: 'Perhar@6221',
+        password: 'password',
         database: 'node_test'
     });
 }
@@ -102,7 +95,7 @@ function Pets() {
     this.connection = mysql.createConnection({
         host: 'localhost',
         user: 'andre',
-        password: 'Perhar@6221',
+        password: 'password',
         database: 'node_test'
     });
 }
@@ -117,7 +110,7 @@ function QueryInterface(query) {
     this.connection = this.connection = mysql.createConnection({
         host: 'localhost',
         user: 'andre',
-        password: 'Perhar@6221',
+        password: 'password',
         database: 'node_test'
     });
 }
