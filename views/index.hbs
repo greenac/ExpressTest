@@ -1,0 +1,29 @@
+<div id="allContent">
+    <div id="top">
+        <div id="leftBar">Testing out JavaScript Stack</div>
+        <div id="rightBar">Not too bad!!</div>
+    </div>
+    <div class="separator"></div>
+
+    <div id="people"> </div>
+
+
+    <script id="person-template" type="text/x-handlebars-template">
+            <a href="#" class="personLink">{{person_firstName}} {{person_lastName}}</a> says:{{person_message}}
+    </script>
+
+
+    <script id="personsPetsDetail-template" type="x-handlebars-template">
+        <div class="detail">
+            {{person_firstName}} {{person_lastName}} Owns:
+            {{pet_firstName}} {{pet_lastName}} a {{pet_type}} aka: {{pet_nickName}}
+        </div>
+    </script>
+
+    <div class="separator"></div>
+
+    <div id="peopleAndPets"> </div>
+    <script id="personAndPets-template" type="text/x-handlebars-template">
+        {{pet_firstName}} {{pet_lastName}} is a {{pet_type}} who is owned by: {{person_firstName}}
+    </script>
+</div>

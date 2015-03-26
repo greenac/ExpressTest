@@ -3,7 +3,7 @@
  */
 
 $(function() {
-    new AppRouter();
+    window.router = new AppRouter();
 
     Backbone.history.start();
     console.log('calling app router');

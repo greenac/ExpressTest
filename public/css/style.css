@@ -7,7 +7,8 @@ body {
 }
 
 #top {
-    color: #6a3b39
+    color: #6a3b39;
+    padding: 10px 0 10px 0;
 }
 
 h1 {
@@ -44,6 +45,13 @@ li {
     width: 100%;
 }
 
+.personTable table {
+    border: 2px solid green;
+    width: 300px;
+}
+
+
+
 .separator {
     margin: 2px 0 2px 0;
     width: 100%;
@@ -51,11 +59,16 @@ li {
     background-color: rgba(13, 12, 51, 0.64)
 }
 
+.detail {
+    color: green;
+    padding: 10px 0 10px 0;
+}
+
 a {
     text-decoration: none;
 }
 
-a:link {
+a:link, a:visited {
     color: #69d2e7;
 }
 
