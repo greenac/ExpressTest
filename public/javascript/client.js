@@ -47,11 +47,7 @@ var PersonView = Backbone.View.extend({
         'click .personLink': 'showPersonsPets'
     },
     render: function () {
-        var template = $("#person-template").html();
-        var compiled = Handlebars.compile(template);
-        var html = compiled(this.model.attributes);
-        this.$el.html(html);
-        return this;
+        return ViewCompiler.compile(this, "#person-template");
     },
     showPersonsPets: function (e) {
         e.preventDefault();
@@ -64,24 +60,29 @@ var PersonAndPetView = Backbone.View.extend({
     tagName: 'li',
     className: 'personWithPet',
     render: function () {
-        var template = $("#personAndPets-template").html();
-        var compiled = Handlebars.compile(template);
-        var html = compiled(this.model.attributes);
-        this.$el.html(html);
-        return this;
+        return ViewCompiler.compile(this, "#personAndPets-template");
     }
 });
 
 var PersonAndPetDetailView = Backbone.View.extend({
     render: function () {
-        var template = $("#personsPetsDetail-template").html();
-        var compiled = Handlebars.compile(template);
-        var html = compiled(this.model.attributes);
-        this.$el.html(html);
-        return this;
+        return ViewCompiler.compile(this, "#personsPetsDetail-template");
     }
 });
 
+/**
+ * View helper classes
+ */
+
+var ViewCompiler = {
+    compile: function(view, tag) {
+        // compile the view's template
+        var compiled = Handlebars.compile($(tag).html());
+        var html = compiled(view.model.attributes);
+        view.$el.html(html);
+        return view;
+    }
+};
 /**
  * Collection Views
  */
